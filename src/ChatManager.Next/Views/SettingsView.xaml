@@ -1,0 +1,88 @@
+﻿<Window x:Class="ChatManager.Views.SettingsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:conv="clr-namespace:ChatManager.Converter"
+        xmlns:local="clr-namespace:ChatManager.Views"
+        xmlns:vm="clr-namespace:ChatManager.ViewModels"
+        mc:Ignorable="d"
+        Title="SettingsView" MinHeight="400" MinWidth="850">
+
+    <Window.DataContext>
+        <vm:SettingsViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <conv:ThemeConverter x:Key="ThemeConverter" />
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical" Margin="5">
+            <GroupBox Header="Design-Einstellungen" Margin="5">
+                <StackPanel Orientation="Vertical" Margin="5">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Theme Auswahl" />
+                        <RadioButton x:Name="LightTheme" Content="Hell" GroupName="ThemeButtons" IsChecked="{Binding SelectedTheme, Converter={StaticResource ThemeConverter}, ConverterParameter=Hell}"/>
+                        <RadioButton x:Name="DarkTheme" Content="Dunkel" GroupName="ThemeButtons" IsChecked="{Binding SelectedTheme, Converter={StaticResource ThemeConverter}, ConverterParameter=Dunkel}"/>
+                        <RadioButton x:Name="SystemTheme" Content="System" GroupName="ThemeButtons" IsChecked="{Binding SelectedTheme, Converter={StaticResource ThemeConverter}, ConverterParameter=System}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Margin="0,5,0,0">
+                        <Label Content="Sprache" />
+                        <ComboBox SelectedIndex="{Binding SelectedLanguage}">
+                            <ComboBoxItem Content="Englisch" />
+                            <ComboBoxItem Content="Französisch" />
+                            <ComboBoxItem Content="Deutsch" />
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" Margin="5">
+            <GroupBox Header="Allgemeine Einstellungen" Margin="5">
+                <StackPanel Orientation="Vertical" Margin="5">
+                    <CheckBox Content="Speichern der letzten Farben beim schließen der App" />
+                    <CheckBox Content="Öffnen der letzten Farben beim starten der App" />
+                    <Label Content="Log Level (je höher desto mehr wird geloggt)" VerticalAlignment="Center" />
+                    <ComboBox SelectedIndex="{Binding SelectedLogLevel}">
+                        <ComboBoxItem Content="TRACE" />
+                        <ComboBoxItem Content="DEBUG" />
+                        <ComboBoxItem Content="INFO" />
+                        <ComboBoxItem Content="WARNING" />
+                        <ComboBoxItem Content="ERROR" />
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Autosave Einstellungen" Margin="5">
+                <StackPanel Orientation="Vertical">
+                    <CheckBox Content="Autosave aktivieren" IsChecked="{Binding IsAutosaveEnabled}" />
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox IsEditable="True" SelectedIndex="{Binding AutosaveInterval}">
+                            <ComboBoxItem Content="1" />
+                            <ComboBoxItem Content="3" />
+                            <ComboBoxItem Content="5" />
+                            <ComboBoxItem Content="10" />
+                        </ComboBox>
+                        <Label Content="Autosave Intervall (in Minuten)" VerticalAlignment="Center" Margin="5,0,0,0" />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <Button Grid.Column="0" Grid.Row="1" Content="Zurücksetzen" HorizontalAlignment="Stretch" Margin="5" />
+        <Button Grid.Column="1" Grid.Row="1" Content="Speichern" IsEnabled="{Binding SettingsChanged}" HorizontalAlignment="Stretch" Margin="5" />
+    </Grid>
+</Window>

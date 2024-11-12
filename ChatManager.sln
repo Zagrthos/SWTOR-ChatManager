@@ -3,18 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatManager", "ChatManager\ChatManager.csproj", "{881A697A-B012-42AF-9073-918FBD2EB827}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatManager.Next", "src\ChatManager.Next\ChatManager.Next.csproj", "{B0159C2B-A538-48B0-9CDB-E50B092FEA27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM64 = Debug|ARM64
 		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|ARM64 = Release|ARM64
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{881A697A-B012-42AF-9073-918FBD2EB827}.Debug|x64.ActiveCfg = Debug|x64
-		{881A697A-B012-42AF-9073-918FBD2EB827}.Debug|x64.Build.0 = Debug|x64
-		{881A697A-B012-42AF-9073-918FBD2EB827}.Release|x64.ActiveCfg = Release|x64
-		{881A697A-B012-42AF-9073-918FBD2EB827}.Release|x64.Build.0 = Release|x64
+		{B0159C2B-A538-48B0-9CDB-E50B092FEA27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0159C2B-A538-48B0-9CDB-E50B092FEA27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0159C2B-A538-48B0-9CDB-E50B092FEA27}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{B0159C2B-A538-48B0-9CDB-E50B092FEA27}.Debug|ARM64.Build.0 = Debug|ARM64
+		{B0159C2B-A538-48B0-9CDB-E50B092FEA27}.Debug|x64.ActiveCfg = Debug|x64
+		{B0159C2B-A538-48B0-9CDB-E50B092FEA27}.Debug|x64.Build.0 = Debug|x64
+		{B0159C2B-A538-48B0-9CDB-E50B092FEA27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0159C2B-A538-48B0-9CDB-E50B092FEA27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0159C2B-A538-48B0-9CDB-E50B092FEA27}.Release|ARM64.ActiveCfg = Release|ARM64
+		{B0159C2B-A538-48B0-9CDB-E50B092FEA27}.Release|ARM64.Build.0 = Release|ARM64
+		{B0159C2B-A538-48B0-9CDB-E50B092FEA27}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
