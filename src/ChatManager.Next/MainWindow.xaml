@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:ChatManager"
         xmlns:vm="clr-namespace:ChatManager.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="500" MinWidth="750">
+        Title="MainWindow" MinHeight="500" MinWidth="750" Height="500" Width="750" WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
