@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using ChatManager.ViewModels;
 
 namespace ChatManager.Views;
 
@@ -7,6 +8,11 @@ namespace ChatManager.Views;
 /// </summary>
 public partial class SettingsView : Window
 {
-    public SettingsView()
-        => InitializeComponent();
+    public SettingsView(SettingsViewModel settingsViewModel)
+    {
+        InitializeComponent();
+        DataContext = settingsViewModel;
+    }
+
+    public SettingsViewModel ViewModel => (SettingsViewModel)DataContext;
 }

@@ -9,10 +9,6 @@
         mc:Ignorable="d"
         Title="SettingsView" MinHeight="400" MinWidth="850" Height="400" Width="850" WindowStartupLocation="CenterScreen">
 
-    <Window.DataContext>
-        <vm:SettingsViewModel />
-    </Window.DataContext>
-
     <Window.Resources>
         <conv:ThemeConverter x:Key="ThemeConverter" />
     </Window.Resources>
@@ -33,14 +29,14 @@
                 <StackPanel Orientation="Vertical" Margin="5">
                     <StackPanel Orientation="Vertical">
                         <Label Content="Theme Auswahl" />
-                        <RadioButton x:Name="LightTheme" Content="Hell" GroupName="ThemeButtons" IsChecked="{Binding SelectedTheme, Converter={StaticResource ThemeConverter}, ConverterParameter=Hell}"/>
-                        <RadioButton x:Name="DarkTheme" Content="Dunkel" GroupName="ThemeButtons" IsChecked="{Binding SelectedTheme, Converter={StaticResource ThemeConverter}, ConverterParameter=Dunkel}"/>
-                        <RadioButton x:Name="SystemTheme" Content="System" GroupName="ThemeButtons" IsChecked="{Binding SelectedTheme, Converter={StaticResource ThemeConverter}, ConverterParameter=System}"/>
+                        <RadioButton x:Name="LightTheme" Content="Hell" GroupName="ThemeButtons"/>
+                        <RadioButton x:Name="DarkTheme" Content="Dunkel" GroupName="ThemeButtons" />
+                        <RadioButton x:Name="SystemTheme" Content="System" GroupName="ThemeButtons" />
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical" Margin="0,5,0,0">
                         <Label Content="Sprache" />
-                        <ComboBox SelectedIndex="{Binding SelectedLanguage}">
+                        <ComboBox SelectedIndex="2">
                             <ComboBoxItem Content="Englisch" />
                             <ComboBoxItem Content="Französisch" />
                             <ComboBoxItem Content="Deutsch" />
@@ -56,7 +52,7 @@
                     <CheckBox Content="Speichern der letzten Farben beim schließen der App" />
                     <CheckBox Content="Öffnen der letzten Farben beim starten der App" />
                     <Label Content="Log Level (je höher desto mehr wird geloggt)" VerticalAlignment="Center" />
-                    <ComboBox SelectedIndex="{Binding SelectedLogLevel}">
+                    <ComboBox SelectedIndex="2">
                         <ComboBoxItem Content="TRACE" />
                         <ComboBoxItem Content="DEBUG" />
                         <ComboBoxItem Content="INFO" />
@@ -68,9 +64,9 @@
 
             <GroupBox Header="Autosave Einstellungen" Margin="5">
                 <StackPanel Orientation="Vertical">
-                    <CheckBox Content="Autosave aktivieren" IsChecked="{Binding IsAutosaveEnabled}" />
+                    <CheckBox Content="Autosave aktivieren" />
                     <StackPanel Orientation="Horizontal">
-                        <ComboBox IsEditable="True" SelectedIndex="{Binding AutosaveInterval}">
+                        <ComboBox IsEditable="True" SelectedIndex="2">
                             <ComboBoxItem Content="1" />
                             <ComboBoxItem Content="3" />
                             <ComboBoxItem Content="5" />
@@ -83,6 +79,6 @@
         </StackPanel>
 
         <Button Grid.Column="0" Grid.Row="1" Content="Zurücksetzen" HorizontalAlignment="Stretch" Margin="5" />
-        <Button Grid.Column="1" Grid.Row="1" Content="Speichern" IsEnabled="{Binding SettingsChanged}" HorizontalAlignment="Stretch" Margin="5" />
+        <Button Grid.Column="1" Grid.Row="1" Content="Speichern" HorizontalAlignment="Stretch" Margin="5" />
     </Grid>
 </Window>

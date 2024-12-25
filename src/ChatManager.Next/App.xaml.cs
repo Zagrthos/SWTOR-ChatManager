@@ -22,10 +22,8 @@ public partial class App : Application
 
         App app = new();
 
-        AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
-        {
-            logger.UnhandledException("AppDomain.CurrentDomain", (Exception)args.ExceptionObject);
-        };
+        AppDomain.CurrentDomain.UnhandledException += (sender, args)
+            => logger.UnhandledException("AppDomain.CurrentDomain", (Exception)args.ExceptionObject);
 
         app.DispatcherUnhandledException += (sender, args) =>
         {
@@ -33,10 +31,8 @@ public partial class App : Application
             args.Handled = true;
         };
 
-        TaskScheduler.UnobservedTaskException += (sender, args) =>
-        {
-            logger.UnhandledException("TaskScheduler", args.Exception);
-        };
+        TaskScheduler.UnobservedTaskException += (sender, args)
+            => logger.UnhandledException("TaskScheduler", args.Exception);
 
         app.InitializeComponent();
         app.MainWindow = host.Services.GetRequiredService<MainWindow>();

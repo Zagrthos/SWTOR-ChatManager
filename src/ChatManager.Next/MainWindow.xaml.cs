@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using ChatManager.ViewModels;
 
 namespace ChatManager;
 
@@ -8,11 +9,14 @@ namespace ChatManager;
 /// </summary>
 public sealed partial class MainWindow : Window
 {
-    public MainWindow()
+    public MainWindow(MainWindowViewModel mainWindowViewModel)
     {
         InitializeComponent();
+        DataContext = mainWindowViewModel;
         GlobalTabItem.Focus();
     }
+
+    public MainWindowViewModel ViewModel => (MainWindowViewModel)DataContext;
 
     private void TabItem_GotFocus(object sender, RoutedEventArgs e)
     {

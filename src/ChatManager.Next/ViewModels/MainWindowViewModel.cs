@@ -1,26 +1,17 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
-using ChatManager.Views;
+﻿using ChatManager.Views;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace ChatManager.ViewModels;
 
-public partial class MainWindowViewModel : INotifyPropertyChanged
+public partial class MainWindowViewModel(SettingsViewModel settingsViewModel) : ObservableObject
 {
-    public MainWindowViewModel()
-        => OpenSettingsCommand = new RelayCommand(OpenSettings);
+    private readonly SettingsViewModel _settingsViewModel = settingsViewModel;
 
-    public ICommand OpenSettingsCommand { get; }
-
-    private static void OpenSettings()
+    [RelayCommand]
+    private void OpenSettings()
     {
-        SettingsView settings = new();
+        SettingsView settings = new(_settingsViewModel);
         settings.ShowDialog();
     }
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }

@@ -56,15 +56,15 @@ public static class StartupHelper
 
     private static void AddAppServices(this IServiceCollection services)
     {
-        services.AddSingleton<MainWindow>();
-        services.AddSingleton<MainWindowViewModel>();
-
-        services.AddSingleton<MessageBoxView>();
-        services.AddSingleton<MessageBoxViewModel>();
-
         services.AddSingleton<ThemeConverter>();
 
         services.AddSingleton<SettingsView>();
         services.AddSingleton<SettingsViewModel>();
+
+        services.AddSingleton<MainWindowViewModel>();
+        services.AddSingleton<MainWindow>();
+
+        services.AddSingleton<MessageBoxView>();
+        services.AddSingleton<MessageBoxViewModel>();
     }
 }
